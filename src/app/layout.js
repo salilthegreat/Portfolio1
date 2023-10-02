@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Developer Portfolio',
+  title: 'Web Developer Portfolio',
   description: 'Web Developer Portfolio Made With NextJs',
 }
 
