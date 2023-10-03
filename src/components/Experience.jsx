@@ -13,7 +13,7 @@ const Details = ({ position, company, companyLink, time, addresss, work }) => {
             whileInView={{y:0}}
             transition={{duration:0.5,type:"spring"}}
             >
-                <h3 className='capitalize font-bold text-2xl '>{position}&nbsp; <Link href={companyLink} target='_blank' className='text-primary capitalize'>@{company}</Link></h3>
+                <h3 className='capitalize font-bold text-2xl '>{position}&nbsp; <Link href={companyLink} target='_blank' className='text-primary dark:text-primaryDark capitalize'>@{company}</Link></h3>
                 <span className='capitalize font-medium text-dark/75 '>
                     {time} | {addresss}
                 </span>
@@ -35,7 +35,7 @@ const Experience = () => {
             <div ref={ref} className='w-[75%] mx-auto relative'>
                 <motion.div
                     style={{ scaleY: scrollYProgress }}
-                    className='absolute left-9 top-0 w-[4px] h-full bg-dark origin-top' />
+                    className='absolute left-9 top-0 w-[4px] h-full bg-dark origin-top dark:bg-light' />
                 <ul className='w-full flex flex-col items-start justify-between ml-4'>
                     <Details companyLink="https://google.com" position={'Software Engineer'} company={'Google'} time={'2022-Present'} addresss={'Mountain View, CA'}
                         work="Worked on a team responsible for developing new features for Google's 
