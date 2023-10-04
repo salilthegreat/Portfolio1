@@ -12,6 +12,7 @@ import article5 from "../../../public/images/articles/create modal component in 
 import article6 from "../../../public/images/articles/pagination component in reactjs.jpg"
 import article7 from "../../../public/images/articles/todo list app built using react redux and framer motion.png"
 import article8 from "../../../public/images/articles/What is Redux with easy explanation.png"
+import TransitionEffect from '@/components/TransitionEffect'
 
 // export const metadata = {
 //     title: "Salil Das | Articles",
@@ -48,7 +49,7 @@ const MovingImage = ({ title, img, link }) => {
                 sizes='(max-width:768px) 100vw
              (max-width:1200px) 50vw
              33vw'
-                alt={title} className='w-96 h-auto hidden absolute rounded-lg z-10'
+                alt={title} className='w-96 h-auto hidden absolute rounded-lg z-10 '
 
             />
         </Link>
@@ -57,13 +58,13 @@ const MovingImage = ({ title, img, link }) => {
 
 const Article = ({ img, title, date, link }) => {
     return (
-        <motion.li className='relative w-full p-4 py-6 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4 dark:bg-dark dark:text-light dark:border-light'
+        <motion.li className='relative w-full p-4 py-6 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4 dark:bg-dark dark:text-light dark:border-light sm:flex-col'
             initial={{ y: 200 }}
             whileInView={{ y: 0, transition: { duration: 0.5, ease: easeInOut } }}
             viewport={{ once: true }}
         >
             <MovingImage title={title} img={img} link={link} />
-            <span className='text-primary font-semibold pl-4 dark:text-primaryDark'>{date}</span>
+            <span className='text-primary font-semibold pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:text-sm'>{date}</span>
         </motion.li>
     )
 }
@@ -81,7 +82,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
                     transition={{ duration: 0.2 }} />
             </Link>
             <Link href={link} target='_blank'>
-                <h2 className='capitalize text-2xl font-bold my-2 hover:underline mt-4 '>{title}</h2>
+                <h2 className='capitalize text-2xl font-bold my-2 hover:underline mt-4 xs:text-lg  '>{title}</h2>
             </Link>
             <p className='text-sm mb-2 '>{summary}</p>
             <span className='text-primary font-semibold dark:text-primaryDark'>{time}</span>
@@ -91,11 +92,13 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
 
 const Articles = () => {
     return (
+        <>
+        <TransitionEffect/>
         <div className='w-full flex flex-col items-center justify-center overflow-hidden dark:bg-dark dark:text-light'>
 
             <div className='p-14'>
-                <AnimatedText text={'Words Can Change The World!'} className={"mb-16"} />
-                <ul className='grid grid-cols-2 gap-16'>
+                <AnimatedText text={'Words Can Change The World!'} className={"mb-16 lg:!text-7xl sm:!6xl xs:!text-4xl sm:!mb-8"} />
+                <ul className='grid grid-cols-2 gap-16 lg:gap-8 md:gap-y-16 md:grid-cols-1'>
                     <FeaturedArticle
                         link="/"
                         img={article1}
@@ -158,6 +161,7 @@ const Articles = () => {
                 </ul>
             </div>
         </div>
+        </>
     )
 }
 

@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import './globals.css'
 import { Montserrat } from 'next/font/google'
 import Footer from '@/components/Footer'
+import AnimatePresenceProvider from '@/components/AnimatePresenceProvider'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -14,9 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
+        <AnimatePresenceProvider>
         <Navbar />
-        {children}
-        <Footer/>
+          {children}
+        <Footer />
+        </AnimatePresenceProvider>
       </body>
     </html>
   )
